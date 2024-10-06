@@ -1,0 +1,32 @@
+
+
+import React ,{useState} from "react";
+
+export default function EditUserDetails({user ,editUserAge,editUserName}){
+ 
+  function handleUserAge(){
+   editUserAge(user.age+1)
+  }
+
+  // const [localUser,setLocalUser] = useState({name:'sohan',age:10})
+
+  function handleNameChange(e){
+    console.log(e.target.value);
+    editUserName(e.target.value)
+    // setLocalUser({...localUser,name:e.target.value})
+  }
+
+  function handleAgeChange(e){
+    editUserAge(e.target.value)
+   
+    // setLocalUser({...localUser,age:e.target.value})
+  }
+
+  return(
+<>
+ <input type="text" placeholder="name" value={user.name} onChange={handleNameChange}/>
+ <input type="number" placeholder="age" value={user.age} onChange={handleAgeChange}/>
+ 
+</>
+  )
+}
